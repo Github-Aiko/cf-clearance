@@ -8,7 +8,7 @@ const request = require("supertest")
 
 test('Request Authorisation Control Test', async () => {
     return request(server)
-        .post("/cf-clearance-scraper")
+        .post("/cf-clearance")
         .send({
             url: 'https://nopecha.com/demo/cloudflare',
             mode: "source"
@@ -18,7 +18,7 @@ test('Request Authorisation Control Test', async () => {
 
 test('Browser Context Limit Control Test', async () => {
     return request(server)
-        .post("/cf-clearance-scraper")
+        .post("/cf-clearance")
         .send({
             url: 'https://nopecha.com/demo/cloudflare',
             mode: "source",

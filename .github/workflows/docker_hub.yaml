@@ -28,7 +28,7 @@ jobs:
       - name: Get latest version from Docker Hub
         id: get_docker_version
         run: |
-          LATEST_VERSION=$(curl -s "https://hub.docker.com/v2/repositories/zfcsoftware/cf-clearance-scraper/tags?page_size=1" | jq -r '.results[0].name')
+          LATEST_VERSION=$(curl -s "https://hub.docker.com/v2/repositories/aikocute/cf-clearance/tags?page_size=1" | jq -r '.results[0].name')
           echo "DOCKER_VERSION=$LATEST_VERSION" >> $GITHUB_ENV
 
       - name: Compare versions
@@ -49,9 +49,9 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
           echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-          docker build -t zfcsoftware/cf-clearance-scraper:$VERSION .
-          docker tag zfcsoftware/cf-clearance-scraper:${{ env.VERSION }} zfcsoftware/cf-clearance-scraper:latest
-          docker push zfcsoftware/cf-clearance-scraper:latest
-          docker push zfcsoftware/cf-clearance-scraper:$VERSION
+          docker build -t aikocute/cf-clearance:$VERSION .
+          docker tag aikocute/cf-clearance:${{ env.VERSION }} aikocute/cf-clearance:latest
+          docker push aikocute/cf-clearance:latest
+          docker push aikocute/cf-clearance:$VERSION
       - name: Logout from Docker Hub
         run: docker logout

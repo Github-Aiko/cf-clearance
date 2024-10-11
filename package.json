@@ -1,5 +1,5 @@
 {
-  "name": "cf-clearance-scraper",
+  "name": "cf-clearance",
   "version": "2.0.7",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "undetected",
     "stealth"
   ],
-  "author": "zfcsoftware",
+  "author": "aikocute",
   "license": "ISC",
   "description": "This package is an experimental and educational package created for Cloudflare protections.",
   "dependencies": {

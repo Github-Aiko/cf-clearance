@@ -2,7 +2,7 @@ name: Report Issue
 description: Please use this to report any issue
 labels: [triage]
 assignees:
-  - zfcsoftware
+  - aikocute
 body:
   - type: markdown
     attributes:

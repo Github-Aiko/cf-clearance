@@ -17,7 +17,7 @@ afterAll(async () => {
 
 test('Scraping Page Source from Cloudflare Protection', async () => {
     return request(server)
-        .post("/cf-clearance-scraper")
+        .post("/cf-clearance")
         .send({
             url: 'https://nopecha.com/demo/cloudflare',
             mode: "source"
@@ -29,7 +29,7 @@ test('Scraping Page Source from Cloudflare Protection', async () => {
 
 test('Creating a Turnstile Token With Site Key [min]', async () => {
     return request(server)
-        .post("/cf-clearance-scraper")
+        .post("/cf-clearance")
         .send({
             url: 'https://turnstile.zeroclover.io/',
             siteKey: "0x4AAAAAAAEwzhD6pyKkgXC0",
@@ -41,7 +41,7 @@ test('Creating a Turnstile Token With Site Key [min]', async () => {
 
 test('Creating a Turnstile Token With Site Key [max]', async () => {
     return request(server)
-        .post("/cf-clearance-scraper")
+        .post("/cf-clearance")
         .send({
             url: 'https://turnstile.zeroclover.io/',
             mode: "turnstile-max"
@@ -52,7 +52,7 @@ test('Creating a Turnstile Token With Site Key [max]', async () => {
 
 test('Create Cloudflare WAF Session', async () => {
     return request(server)
-        .post("/cf-clearance-scraper")
+        .post("/cf-clearance")
         .send({
             url: 'https://nopecha.com/demo/cloudflare',
             mode: "waf-session"

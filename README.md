@@ -8,7 +8,7 @@ Cookies with cf in the name belong to Cloudflare. You can find out what these co
 
 ## Sponsor
 
-[![Capsolver](src/data/capsolver.png)](https://www.capsolver.com/?utm_source=github&utm_medium=repo&utm_campaign=scraping&utm_term=cf-clearance-scraper)
+[![Capsolver](src/data/capsolver.png)](https://www.capsolver.com/?utm_source=github&utm_medium=repo&utm_campaign=scraping&utm_term=cf-clearance)
 
 ## Installation
 
@@ -19,7 +19,7 @@ Installation with Docker is recommended.
 Please make sure you have installed the latest image. If you get an error, try downloading the latest version by going to Docker Hub.
 
 ```bash
-sudo docker rmi zfcsoftware/cf-clearance-scraper:latest --force
+sudo docker rmi aikocute/cf-clearance:latest --force
 ```
 
 ```bash
@@ -27,14 +27,14 @@ docker run -d -p 3000:3000 \
 -e PORT=3000 \
 -e browserLimit=20 \
 -e timeOut=60000 \
-zfcsoftware/cf-clearance-scraper:latest
+aikocute/cf-clearance:latest
 ```
 
 **Github**
 
 ```bash
-git clone https://github.com/zfcsoftware/cf-clearance-scraper
-cd cf-clearance-scraper
+git clone https://github.com/aikocute/cf-clearance
+cd cf-clearance
 npm install
 npm run start
 ```
@@ -46,7 +46,7 @@ By creating a session as in the example, you can send multiple requests to the s
 ```js
 const initCycleTLS = require('cycletls');
 async function test() {
-    const session = await fetch('http://localhost:3000/cf-clearance-scraper', {
+    const session = await fetch('http://localhost:3000/cf-clearance', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ This endpoint allows you to generate tokens for a Cloudflare Turnstile Captcha. 
 However, in this method, the siteKey variable must be sent to Turnstile along with the site to create the token. If this does not work, you can examine the token generation system by loading the full page resource described in the next section.
 
 ```js
-fetch('http://localhost:3000/cf-clearance-scraper', {
+fetch('http://localhost:3000/cf-clearance', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -117,7 +117,7 @@ fetch('http://localhost:3000/cf-clearance-scraper', {
 This example request goes to the page at the given url address with a real browser, resolves the Turnstile and returns you the token.
 
 ```js
-fetch('http://localhost:3000/cf-clearance-scraper', {
+fetch('http://localhost:3000/cf-clearance', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
@@ -143,7 +143,7 @@ fetch('http://localhost:3000/cf-clearance-scraper', {
 With this request you can scrape the page source of a website protected with CF WAF.
 
 ```js
-fetch('http://localhost:3000/cf-clearance-scraper', {
+fetch('http://localhost:3000/cf-clearance', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
