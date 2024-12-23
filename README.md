@@ -33,7 +33,7 @@ aikocute/cf-clearance:latest
 **Github**
 
 ```bash
-git clone https://github.com/aikocute/cf-clearance
+git clone https://github.com/github-aiko/cf-clearance
 cd cf-clearance
 npm install
 npm run start
