@@ -58,6 +58,9 @@ app.post('/cf-clearance', async (req, res) => {
         case "waf-session":
             result = await wafSession(data).then(res => { return { ...res, code: 200 } }).catch(err => { return { code: 500, message: err.message } })
             break;
+        case "browser":
+            result = await getBrowser(data).then(res => { return { ...res, code: 200 } }).catch(err => { return { code: 500, message: err.message } })
+            break;
     }
 
     global.browserLength--
